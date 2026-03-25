@@ -1,0 +1,21 @@
+name: oadmet_pxr_tutorial
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - rdkit
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - jupyterlab
+  - numpy
+  - lightgbm
+  - tqdm
+  - fsspec
+  - datasets
+  - scipy
+  - biotite
+  - pip:
+      - git+https://github.com/PatWalters/useful_rdkit_utils.git@master
