@@ -17,5 +17,9 @@ dependencies:
   - datasets
   - scipy
   - biotite
+  - nglview
+  - mdanalysis
+
   - pip:
       - git+https://github.com/PatWalters/useful_rdkit_utils.git@master
+      - gradio-client
