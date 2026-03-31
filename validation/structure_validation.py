@@ -6,7 +6,7 @@ import MDAnalysis as mda
 from pathlib import Path
 from typing import Union
 
-STRUCTURE_DATASET_SIZE = 110
+STRUCTURE_DATASET_SIZE = 78
 
 def validate_structure_submission(
     structure_predictions_file: Union[str, Path],
