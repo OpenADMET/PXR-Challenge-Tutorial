@@ -2,16 +2,26 @@ from __future__ import annotations
 
 import zipfile
 import tempfile
+from collections import Counter
 import MDAnalysis as mda
 from pathlib import Path
 from typing import Union
+from rdkit import Chem
 
 STRUCTURE_DATASET_SIZE = 78
+
+
+def _heavy_atom_counts_from_smiles(smiles: str) -> Counter | None:
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is None:
+        return None
+    return Counter(atom.GetSymbol() for atom in mol.GetAtoms())
+
 
 def validate_structure_submission(
     structure_predictions_file: Union[str, Path],
     expected_ids: set[str] | None = None,
-    expected_ligand_smiles: set[str] | None = None,
+    expected_ligand_smiles: dict[str, str] | None = None,
     require_lig_resname: bool = True,
 ) -> tuple[bool, list[str]]:
 
@@ -67,6 +77,28 @@ def validate_structure_submission(
                             # 3. Ensure max two chain exists in the entire PDB
                             if len(u.segments) > 2:
                                 errors.append(f"{name}: Found {len(u.segments)} chains, expected 2 or fewer")
+
+                            # 4. Check ligand matches expected SMILES by heavy-atom composition
+                            if expected_ligand_smiles is not None:
+                                pdb_id = Path(name).stem
+                                expected_smi = expected_ligand_smiles.get(pdb_id)
+                                if expected_smi is not None:
+                                    expected_counts = _heavy_atom_counts_from_smiles(expected_smi)
+                                    if expected_counts is None:
+                                        errors.append(
+                                            f"{name}: Could not parse expected SMILES for '{pdb_id}'"
+                                        )
+                                    else:
+                                        obs_counts = Counter(
+                                            elem for elem in ligands.elements
+                                            if elem.strip() not in ("H", "h", "")
+                                        )
+                                        if obs_counts != expected_counts:
+                                            errors.append(
+                                                f"{name}: Ligand heavy-atom composition mismatch. "
+                                                f"Expected {dict(sorted(expected_counts.items()))}, "
+                                                f"got {dict(sorted(obs_counts.items()))}"
+                                            )
 
                         except Exception as e:
                             errors.append(f"{name}: MDAnalysis failed to parse file: {e}")
