@@ -23,7 +23,6 @@ SEQRES  21 A  293  SER ILE ASN ALA GLN HIS THR GLN ARG LEU LEU ARG ILE
 SEQRES  22 A  293  GLN ASP ILE HIS PRO PHE ALA THR PRO LEU MET GLN GLU          
 SEQRES  23 A  293  LEU PHE GLY ILE THR GLY SER                                  
 HET    LIG1  B   1      17                                                      
-HET    LIG1  C   1      17                                                      
 CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1                      
 ATOM      1  N   GLY A   1      -4.514  10.670 -30.816  1.00 95.36           N  
 ATOM      2  CA  GLY A   1      -3.508  11.700 -30.663  1.00 95.36           C  
@@ -2404,21 +2403,4 @@ HETATM 2376  C32 LIG B   1      -4.059   1.126   4.472  1.00 74.83           C
 HETATM 2377  C31 LIG B   1      -4.882  -0.056   3.994  1.00 73.07           C  
 HETATM 2378  C33 LIG B   1      -4.271  -0.707   2.773  1.00 80.29           C  
 HETATM 2379  C35 LIG B   1      -2.826  -1.119   3.051  1.00 80.09           C  
-HETATM 2380  O20 LIG C   1      -0.488  -1.106   6.798  1.00 83.18           O  
-HETATM 2381  C22 LIG C   1      -1.295  -1.492   7.605  1.00 86.56           C  
-HETATM 2382  C30 LIG C   1      -1.280  -0.924   9.039  1.00 82.64           C  
-HETATM 2383  S21 LIG C   1      -0.082  -1.764  10.108  1.00 79.18           S  
-HETATM 2384  C28 LIG C   1       1.418  -0.846   9.969  1.00 84.30           C  
-HETATM 2385  C26 LIG C   1       1.472   0.511  10.316  1.00 81.25           C  
-HETATM 2386  C24 LIG C   1       2.655   1.182  10.172  1.00 79.36           C  
-HETATM 2387  C23 LIG C   1       3.782   0.535   9.711  1.00 79.72           C  
-HETATM 2388  C25 LIG C   1       3.727  -0.810   9.389  1.00 80.95           C  
-HETATM 2389  C27 LIG C   1       2.539  -1.492   9.526  1.00 83.21           C  
-HETATM 2390  N29 LIG C   1      -2.234  -2.428   7.308  1.00 87.35           N  
-HETATM 2391  C36 LIG C   1      -2.427  -3.006   5.975  1.00 88.84           C  
-HETATM 2392  C34 LIG C   1      -1.440  -4.134   5.704  1.00 87.32           C  
-HETATM 2393  C32 LIG C   1      -1.691  -4.806   4.356  1.00 87.20           C  
-HETATM 2394  C31 LIG C   1      -3.128  -5.286   4.244  1.00 86.49           C  
-HETATM 2395  C33 LIG C   1      -4.139  -4.151   4.497  1.00 87.01           C  
-HETATM 2396  C35 LIG C   1      -3.878  -3.480   5.847  1.00 86.85           C  
 END                                                                             
