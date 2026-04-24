@@ -8,7 +8,7 @@ from typing import Union
 from rdkit import Chem, RDLogger
 from rdkit.Chem import AllChem
 
-STRUCTURE_DATASET_SIZE = 78
+STRUCTURE_DATASET_SIZE = 184
 
 
 def validate_structure_submission(
